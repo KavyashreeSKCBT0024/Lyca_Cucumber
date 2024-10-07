@@ -9,8 +9,8 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 
         //features= {".//Features/"},
-         // features= {".//Features/Login.feature"},
-          features= {".//Features/TermsAndConditions.feature"},
+          features= {".//Features/AppDownload.feature"},
+         // features= {".//Features/TermsAndConditions.feature"},
         //features= {".//Features/Registration.feature"},
 
         //features= {".//Features/LoginDDTExcel.feature"},

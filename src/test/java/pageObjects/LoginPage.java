@@ -23,10 +23,18 @@ public class LoginPage extends  BasePage{
     @FindBy(xpath = "//button[@id='login-confirm-btn']")
     WebElement confirmPasscode;
 
+    @FindBy(xpath = "//img[@id='validation-error-icon']")
+    WebElement errorMsg;
+
     public void enterValidLycaNum()
     {
 
         enterLycaNum.sendKeys("7417527824");
+    }
+    public void enterInvalidLycaNum()
+    {
+
+        enterLycaNum.sendKeys("7417523664");
     }
     public void clickOnLogin()
     {
@@ -39,6 +47,11 @@ public class LoginPage extends  BasePage{
     public void clickOnConfirmPasscode()
     {
         confirmPasscode.click();
+    }
+
+    public boolean invalidCredintialTxt()
+    {
+        return errorMsg.isDisplayed();
     }
 
 }

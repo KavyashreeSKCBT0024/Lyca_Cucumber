@@ -20,11 +20,18 @@ public class LoginSteps {
     LoginPage lp;
     MyAccountPage myacc;
 
+    public LoginSteps()
+    {
+        this.driver = BaseClass.getDriver(); // Ensure this method retrieves a valid driver instance
+        this.hp = new HomePage(driver);
+        this.lp = new LoginPage(driver);
+        this.myacc = new MyAccountPage(driver);
+    }
+
     @Given("the user is on the homepage")
     public void the_user_is_on_the_homepage() {
 
         BaseClass.getLogger().info("Navigate to homepage");
-        hp=new HomePage(BaseClass.getDriver());
         hp.acceptCookies();
 
     }
@@ -40,7 +47,7 @@ public class LoginSteps {
     }
     @When("the user enters a valid phone number")
     public void the_user_enters_a_valid_phone_number() {
-        lp=new LoginPage(BaseClass.getDriver());
+
         lp.enterValidLycaNum();
     }
     @When("the user clicks on the Login button")
@@ -57,7 +64,6 @@ public class LoginSteps {
     }
     @Then("the user should be redirected to the My Account page")
     public void the_user_should_be_redirected_to_the_my_account_page() {
-        myacc=new MyAccountPage(BaseClass.getDriver());
         boolean targetPage=myacc.verifyDashboardTxt();
         Assert.assertEquals(targetPage,true);
     }
@@ -68,5 +74,23 @@ public class LoginSteps {
 
     }
 
+    @When("the user enters an invalid phone number")
+    public void invalidPhoneNumber() {
+        lp=new LoginPage(BaseClass.getDriver());
+        lp.enterInvalidLycaNum();
+    }
 
+    @Then("the user should see an error message Invalid credentials. Please try again.")
+    public void errorMsg_for_invalidCredintial() {
+        boolean actualtxt=lp.invalidCredintialTxt();
+        Assert.assertEquals(actualtxt,true);
+
+    }
+
+    @Then("the user should remain on the login page")
+    public void user_should_be_on_samePage() {
+        String url=driver.getCurrentUrl();
+        Assert.assertEquals(url,"https://mylyca.lycamobile.co.uk/en/login/");
+
+    }
 }

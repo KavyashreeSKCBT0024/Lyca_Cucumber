@@ -1,5 +1,6 @@
 package pageObjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -40,6 +41,15 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//a[@id='termsconditionsfooter']")
     WebElement terms_conditions;
 
+    @FindBy(xpath = "//img[@id='slider-prev-arrow']")
+    WebElement clickArrow;
+
+    @FindBy(xpath = "//img[@id='test']")
+    WebElement click_googlePlayBtn;
+
+    @FindBy(xpath = "//img[@alt='App store']")
+    WebElement click_iosBtn;
+
     public void clickProfileIcon()
     {
         profileIcon.click();
@@ -53,6 +63,7 @@ public class HomePage extends BasePage {
     public void acceptCookies()
     {
         acceptAllCookies_button.click();
+       // return null;
     }
 
     public boolean helpAndSupport()
@@ -88,4 +99,17 @@ public class HomePage extends BasePage {
         terms_conditions.click();
     }
 
+    public void clickArrowCheapInternationCals()
+    {
+        clickArrow.click();
+    }
+
+    public void clickOnGooglePlay()
+    {
+        click_googlePlayBtn.click();
+    }
+    public void clickOnAppStore()
+    {
+        click_iosBtn.click();
+    }
 }
