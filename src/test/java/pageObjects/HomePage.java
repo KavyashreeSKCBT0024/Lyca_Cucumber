@@ -50,6 +50,9 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//img[@alt='App store']")
     WebElement click_iosBtn;
 
+    @FindBy(xpath = "//a[text()='Use of this website']")
+    WebElement clickOnUseOfWebsite;
+
     public void clickProfileIcon()
     {
         profileIcon.click();
@@ -111,5 +114,9 @@ public class HomePage extends BasePage {
     public void clickOnAppStore()
     {
         click_iosBtn.click();
+    }
+    public void clickUseOfWebsiteLnk()
+    {
+        clickOnUseOfWebsite.click();
     }
 }

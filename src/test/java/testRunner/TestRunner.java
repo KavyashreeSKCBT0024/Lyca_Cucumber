@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 
         //features= {".//Features/"},
-          features= {".//Features/AppDownload.feature"},
+          features= {".//Features/Login.feature"},
          // features= {".//Features/TermsAndConditions.feature"},
         //features= {".//Features/Registration.feature"},
 

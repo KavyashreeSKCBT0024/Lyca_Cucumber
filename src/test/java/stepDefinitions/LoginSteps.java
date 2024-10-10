@@ -45,18 +45,23 @@ public class LoginSteps {
         hp.clickOnMyLycaMobileLnk();
 
     }
-    @When("the user enters a valid phone number")
-    public void the_user_enters_a_valid_phone_number() {
+    @When("the user enters a phoneNumber {string}")
+    public void the_user_enters_a_valid_phone_number(String phoneNumber) throws InterruptedException {
 
-        lp.enterValidLycaNum();
+        Thread.sleep(3000);
+        lp.enterValidLycaNum(phoneNumber);
     }
+
     @When("the user clicks on the Login button")
-    public void the_user_clicks_on_the_login_button() {
-       lp.clickOnLogin();
+    public void the_user_clicks_on_the_login_button() throws InterruptedException {
+
+        lp.clickOnLogin();
+        Thread.sleep(2000);
     }
     @When("the user enters a valid one-time passcode")
     public void the_user_enters_a_valid_one_time_passcode() {
-       lp.enterPassCode();
+
+        lp.enterPassCode();
     }
     @When("the user clicks on Confirm one-time passcode")
     public void the_user_clicks_on_confirm_one_time_passcode() {
@@ -74,11 +79,11 @@ public class LoginSteps {
 
     }
 
-    @When("the user enters an invalid phone number")
-    public void invalidPhoneNumber() {
-        lp=new LoginPage(BaseClass.getDriver());
-        lp.enterInvalidLycaNum();
-    }
+//    @When("the user enters a phoneNumber {String} ")
+//    public void invalidPhoneNumber(String invalidNum) {
+//        lp=new LoginPage(BaseClass.getDriver());
+//        lp.enterInvalidLycaNum();
+//    }
 
     @Then("the user should see an error message Invalid credentials. Please try again.")
     public void errorMsg_for_invalidCredintial() {

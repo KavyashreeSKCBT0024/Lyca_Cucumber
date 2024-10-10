@@ -26,10 +26,10 @@ public class LoginPage extends  BasePage{
     @FindBy(xpath = "//img[@id='validation-error-icon']")
     WebElement errorMsg;
 
-    public void enterValidLycaNum()
+    public void enterValidLycaNum(String phoneNumber)
     {
 
-        enterLycaNum.sendKeys("7417527824");
+        enterLycaNum.sendKeys(phoneNumber);
     }
     public void enterInvalidLycaNum()
     {

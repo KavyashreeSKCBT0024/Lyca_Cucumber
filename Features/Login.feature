@@ -4,7 +4,7 @@ Feature: Successful Login to Lycamobile App
     Given the user is on the homepage
     When the user clicks on the profile icon
     And the user clicks on My LycaMobile
-    And the user enters a valid phone number
+    And the user enters a phoneNumber "7417527824"
     And the user clicks on the Login button
     And the user enters a valid one-time passcode
     And the user clicks on Confirm one-time passcode
@@ -15,7 +15,7 @@ Feature: Successful Login to Lycamobile App
     Given the user is on the homepage
     When the user clicks on the profile icon
     And the user clicks on My LycaMobile
-    And the user enters an invalid phone number
+    And the user enters a phoneNumber "828828828"
     And the user clicks on the Login button
     Then the user should see an error message Invalid credentials. Please try again.
     And the user should remain on the login page
